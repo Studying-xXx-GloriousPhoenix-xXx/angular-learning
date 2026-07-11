@@ -1,0 +1,20 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: var(--color-background);
+}
+
+:root {
+    --color-primary: #EA580C;
+    --color-secondary: #D97706;
+    --color-accent: #EC4899;
+    --color-background: #FFFBEB;
+    --color-text: #292524;
+}
+
+.btn-ref {
+    width: 120px;
+    height: 60px;
+    padding: 12px 20px;
+}
