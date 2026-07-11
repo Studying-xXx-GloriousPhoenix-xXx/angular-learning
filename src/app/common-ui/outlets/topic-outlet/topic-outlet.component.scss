@@ -1,8 +1,9 @@
 .outlet-header {
     display: flex;
     flex-flow: row nowrap;
-    align-items: start;
-    height: 128px;
+    align-items: center;
+    background: var(--color-text);
+    padding: 16px;
 }
 
 .outlet-content {

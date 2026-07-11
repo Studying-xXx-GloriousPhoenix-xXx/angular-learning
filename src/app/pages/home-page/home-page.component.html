@@ -1,5 +1,8 @@
-@for (link of links; track link) {
-    <button class="btn-ref">
-        {{link}}
+@for (topic of topics; track topic) {
+    <button
+        class="btn-ref secondary-text"
+        routerLink="/topic/{{topic}}"
+    >
+        {{topic}}
     </button>
 }
