@@ -1,1 +1,33 @@
-<p>directive-page works!</p>
+<div class="directive-wrapper">
+    <span class="directive-goal">Text Recoloring</span>
+    <div class="directive-content">
+        <div
+            appHighlight
+            class="topic-text"
+        >{{ number }}</div>
+    </div>
+</div>
+
+<div class="directive-wrapper">
+    <span class="directive-goal">Password Hiding</span>
+    <div class="directive-content">
+        <input #passwordInput type="password" placeholder="Password..." />
+        <button [appTogglePassword]="passwordInput" type="button">
+            👁️
+        </button>
+    </div>
+</div>
+
+<div class="directive-wrapper">
+    <span class="directive-goal">Field Autofocusing</span>
+    <div class="directive-content">
+        <input [appAutoFocus]="true" [delay]="300" type="email" placeholder="Email..." />
+    </div>
+</div>
+
+<div class="directive-wrapper">
+    <span class="directive-goal">Field Autoresizing</span>
+    <div class="directive-content">
+        <textarea appAutoResize [maxHeight]="150" placeholder="Type comment..."></textarea>
+    </div>
+</div>
