@@ -13,8 +13,13 @@
     <div class="directive-content">
         <div class="pwd-wrapper">
             <input #passwordInput type="password" placeholder="Password..." class="g-input pwd-input" />
-            <button [appTogglePassword]="passwordInput" type="button" class="pwd-btn">
-                👁️
+            <button
+                [appTogglePassword]="passwordInput"
+                #toggle="togglePassword"
+                type="button"
+                class="pwd-btn"
+            >
+                <app-svg [name]="toggle.isTextVisible() ? 'eye-off' : 'eye'" size="16" />
             </button>
         </div>
     </div>
