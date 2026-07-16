@@ -14,10 +14,20 @@
     color: var(--color-text);
     cursor: pointer;
     transition: 200ms;
+
+    border: 2px solid var(--color-text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    padding: 4px;
+    border-radius: 50%;
 }
 
 .is-highlighted {
-    color: var(--color-secondary);
+    background: var(--color-text);
+    color: var(--color-background);
 }
 
 .directive-wrapper {
@@ -41,5 +51,28 @@
         align-items: center;
         height: 100%;
         gap: 16px;
+    
+        .pwd-wrapper {
+            display: flex;
+            position: relative;
+
+            & .pwd-input {
+                box-sizing: border-box;
+                padding-right: calc(6px + 1em + 6px);
+            }
+        
+            & .pwd-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: none;
+                border: none;
+                padding: 0;
+                position: absolute;
+                right: 6px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
     }
 }

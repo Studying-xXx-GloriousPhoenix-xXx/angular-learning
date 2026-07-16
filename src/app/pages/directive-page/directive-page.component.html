@@ -11,23 +11,29 @@
 <div class="directive-wrapper">
     <span class="directive-goal">Password Hiding</span>
     <div class="directive-content">
-        <input #passwordInput type="password" placeholder="Password..." />
-        <button [appTogglePassword]="passwordInput" type="button">
-            👁️
-        </button>
+        <div class="pwd-wrapper">
+            <input #passwordInput type="password" placeholder="Password..." class="g-input pwd-input" />
+            <button [appTogglePassword]="passwordInput" type="button" class="pwd-btn">
+                👁️
+            </button>
+        </div>
     </div>
 </div>
 
 <div class="directive-wrapper">
     <span class="directive-goal">Field Autofocusing</span>
     <div class="directive-content">
-        <input [appAutoFocus]="true" [delay]="300" type="email" placeholder="Email..." />
+        <input [appAutoFocus]="true" [delay]="300" type="email" placeholder="Email..." class="g-input" />
     </div>
 </div>
 
 <div class="directive-wrapper">
     <span class="directive-goal">Field Autoresizing</span>
     <div class="directive-content">
-        <textarea appAutoResize [maxHeight]="150" placeholder="Type comment..."></textarea>
+        <textarea
+            appAutoResize
+            [maxHeight]="150"
+            placeholder="Type comment..."
+            class="g-textarea"></textarea>
     </div>
 </div>

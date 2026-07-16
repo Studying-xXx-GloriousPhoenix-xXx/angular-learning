@@ -50,3 +50,21 @@ html, body {
         }
     }
 }
+
+.g-input,
+.g-textarea {
+    padding: 6px 12px;
+    outline: none;
+    background: transparent;
+    border: 1px solid var(--color-text);
+    border-radius: 4px;
+}
+
+.g-textarea {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
