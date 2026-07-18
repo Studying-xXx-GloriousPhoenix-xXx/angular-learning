@@ -5,6 +5,8 @@ import { DirectivePageComponent } from './pages/directive-page/directive-page.co
 import { PipePageComponent } from './pages/pipe-page/pipe-page.component';
 import { InOutPageComponent } from './pages/in-out-page/in-out-page.component';
 import { LifecyclePageComponent } from './pages/lifecycle-page/lifecycle-page.component';
+import { ViewChildPageComponent } from './pages/view-child-page/view-child-page.component';
+import { TOPIC_ROUTES } from './topic.routes';
 
 export const routes: Routes = [
     { path: "", redirectTo: 'home', pathMatch: 'full' },
@@ -15,11 +17,6 @@ export const routes: Routes = [
     {
         path: "topic",
         component: TopicOutletComponent,
-        children: [
-            { path: 'directive', component: DirectivePageComponent },
-            { path: 'pipe', component: PipePageComponent },
-            { path: 'in-out', component: InOutPageComponent },
-            { path: 'lifecycle', component: LifecyclePageComponent }
-        ]
+        children: TOPIC_ROUTES
     }
 ];

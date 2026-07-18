@@ -1,0 +1,33 @@
+<div class="page-container">
+    <section class="demo-section">
+      <h3>1. Робота з DOM-елементом (#textInput)</h3>
+      <div class="control-group">
+        <input 
+          #textInput 
+          type="text" 
+          class="g-input" 
+          placeholder="Введіть текст для фокусування..." 
+        />
+        <button (click)="focusInput()" class="btn" id="focusBtn">Фокус із TS</button>
+        <button (click)="clearInput()" class="btn inverted" id="clearBtn">Очистити з TS</button>
+      </div>
+    </section>
+  
+    <section class="demo-section">
+      <h3>2. Управління списком компонентів (ViewChildren)</h3>
+      <div class="control-group">
+        <button (click)="toggleAllCards()" class="btn inverted" id="highlightAllBtn" style="width: 200px;">
+          Переключити всі картки
+        </button>
+      </div>
+  
+      <div class="cards-grid">
+        @for (item of cardsData; track item.id) {
+          <app-card 
+            [title]="item.title" 
+            [description]="item.desc"
+          />
+        }
+      </div>
+    </section>
+  </div>

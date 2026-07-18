@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from "@angular/router";
+import { TOPIC_ROUTES } from '../../topic.routes';
 
 @Component({
     selector: 'app-home-page',
@@ -8,7 +9,5 @@ import { RouterLink } from "@angular/router";
     styleUrl: './home-page.component.scss',
 })
 export class HomePageComponent {
-    readonly topics: string[] = [
-        'directive', 'pipe', 'in-out', 'lifecycle'
-    ]
+    protected readonly topics = TOPIC_ROUTES.map(r => r.path);
 }
