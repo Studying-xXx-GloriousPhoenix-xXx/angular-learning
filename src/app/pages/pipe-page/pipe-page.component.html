@@ -1,0 +1,25 @@
+<app-demo-card goal="Text Cropping">
+    <div class="crop-text-wrapper">
+        <p class="crop-text-content">{{ text | cropText: (lenInput.valueAsNumber || 120) }}</p>
+        <input #lenInput
+            class="g-input"
+            type="number" placeholder="Enter text length..."
+            (input)="0" [value]="120"
+        >
+    </div>
+</app-demo-card>
+
+<app-demo-card goal="Phone Formatting">
+    <div class="phone-wrapper">
+        <p class="phone-content left">{{ phone }}</p>
+        <p class="phone-content right">{{ phone | phoneFormatter }}</p>
+    </div>
+</app-demo-card>
+
+<app-demo-card goal="Date Formatting">
+    <p class="time-content">{{ date | timeAgo : (currentTime$ | async) }}</p>
+</app-demo-card>
+
+<app-demo-card goal="Safe HTML Bypassing">
+    <div class="html-content" [innerHTML]="code | safeHtml"></div>
+</app-demo-card>

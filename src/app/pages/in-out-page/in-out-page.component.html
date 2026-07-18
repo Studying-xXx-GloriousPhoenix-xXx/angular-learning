@@ -1,0 +1,19 @@
+<app-demo-card goal="IO Data Transfering">
+    <div class="tip-wrapper">
+        <div class="tip-input">
+            <label>Input bill: </label>
+            <input
+                type="number"
+                [value]="totalPrice()"
+                (input)="totalPrice.set($event.target.valueAsNumber)"
+            >
+        </div>
+          
+        <app-tip-calculator
+            [bill]="totalPrice()"
+            (tipSelected)="activePercent.set($event)"
+        />
+          
+        <p class="tip-result"><strong>Total tip: </strong> {{ calculatedTip() }} грн</p>
+    </div>
+</app-demo-card>

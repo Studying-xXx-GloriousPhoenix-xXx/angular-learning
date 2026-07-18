@@ -1,0 +1,14 @@
+:host {
+    display: flex;
+    padding: 1em;
+}
+
+.tip-wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+
+    & > .tip-input,
+    & > .tip-result {
+        padding: 1em;
+    }
+}
