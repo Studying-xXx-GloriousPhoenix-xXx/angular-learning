@@ -4,10 +4,11 @@ import { TogglePasswordDirective } from "../../common-ui/directives/toggle-passw
 import { AutoFocusDirective } from "../../common-ui/directives/auto-focus.directive";
 import { AutoResizeDirective } from "../../common-ui/directives/auto-resize.directive";
 import { SvgComponent } from "../../common-ui/extra/svg.component";
+import { DemoCardComponent } from "../../common-ui/components/demo-card/demo-card.component";
 
 @Component({
     selector: 'app-directive-page',
-    imports: [HighlightDirective, TogglePasswordDirective, AutoFocusDirective, AutoResizeDirective, SvgComponent],
+    imports: [HighlightDirective, TogglePasswordDirective, AutoFocusDirective, AutoResizeDirective, SvgComponent, DemoCardComponent],
     templateUrl: './directive-page.component.html',
     styleUrl: './directive-page.component.scss',
 })

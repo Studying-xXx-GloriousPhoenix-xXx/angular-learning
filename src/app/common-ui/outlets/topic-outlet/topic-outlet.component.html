@@ -1,8 +1,11 @@
 <header class="outlet-header">
-    <button
-        class="btn-ref text-background"
-        routerLink="/home"
-    >home</button>
+    <a routerLink="/home">
+        <app-svg
+            name="home"
+            size="36"
+            class="router-ref text-background"
+        />
+    </a>
 </header>
 <main class="outlet-content">
     <router-outlet />

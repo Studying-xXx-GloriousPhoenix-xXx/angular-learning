@@ -9,6 +9,6 @@ import { RouterLink } from "@angular/router";
 })
 export class HomePageComponent {
     readonly topics: string[] = [
-        'directive',
+        'directive', 'pipe', 'in-out'
     ]
 }
