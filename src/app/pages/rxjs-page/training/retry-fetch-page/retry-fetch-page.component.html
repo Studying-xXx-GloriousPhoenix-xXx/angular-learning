@@ -1,0 +1,36 @@
+<div style="padding: 30px; font-family: sans-serif; max-width: 500px; margin: 0 auto; text-align: center;">
+    <h2>Надійне завантаження даних</h2>
+    <p style="color: #666; font-size: 14px;">Автоповтори під час збою мережі з експонентною затримкою.</p>
+  
+    <button 
+        (click)="loadData()" 
+        [disabled]="isLoading()"
+        style="padding: 12px 24px; font-size: 16px; cursor: pointer; background: #0071e3; color: white; border: none; border-radius: 6px; width: 100%; transition: background 0.2s;"
+        [style.background]="isLoading() ? '#a2a2a2' : '#0071e3'"
+        >
+        @if (isLoading()) { Завантаження... } @else { Отримати дані }
+    </button>
+  
+    @if (isLoading()) {
+        <div style="margin-top: 20px; padding: 15px; background: #fff9e6; border: 1px solid #ffe0b2; border-radius: 6px;">
+            <div style="font-weight: bold; color: #b78103;">Спроба завантаження №{{ attemptCount() }}</div>
+            <p style="margin: 5px 0 0 0; font-size: 13px; color: #666;">
+            @if (attemptCount() > 1) { ⏳ Помилка з'єднання. Очікування перед повтором... } @else { З'єднання з сервером... }
+            </p>
+        </div>
+    }
+  
+    @if (dataResult()) {
+        <div style="margin-top: 20px; padding: 20px; background: #e8f5e9; border: 1px solid #c8e6c9; border-radius: 6px; color: #2e7d32; text-align: left;">
+            <h4 style="margin: 0 0 10px 0;">🎉 Дані успішно отримані!</h4>
+            <pre style="margin: 0; font-size: 12px; font-family: monospace;">{{ dataResult() | json }}</pre>
+        </div>
+    }
+  
+    @if (errorMessage()) {
+        <div style="margin-top: 20px; padding: 15px; background: #ffebee; border: 1px solid #ffcdd2; border-radius: 6px; color: #c62828;">
+            <strong style="display: block; margin-bottom: 5px;">❌ Помилка завантаження</strong>
+            <span style="font-size: 14px;">{{ errorMessage() }}</span>
+        </div>
+    }
+  </div>

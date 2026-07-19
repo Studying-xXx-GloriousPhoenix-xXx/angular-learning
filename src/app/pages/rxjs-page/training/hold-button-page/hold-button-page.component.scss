@@ -1,0 +1,11 @@
+
+.progress-wrapper {
+    display: flex;
+    width: 20em;
+
+    & > .progress-bar {
+        height: 0.25em;
+        background: var(--color-secondary);
+        border-radius: 1em;
+    }
+}
