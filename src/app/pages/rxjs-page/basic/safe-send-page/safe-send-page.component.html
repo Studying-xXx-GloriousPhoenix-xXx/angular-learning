@@ -1,0 +1,22 @@
+<div style="flex: 1;">
+    <h2>Практика RxJS: Безпечне відправлення</h2>
+    <p style="color: #666; font-size: 14px;">Спробуйте багато разів поспіль під час завантаження.</p>
+    
+    <button 
+        #submitBtn
+        style="padding: 10px 20px; font-size: 16px; cursor: pointer;"
+        [disabled]="isSending()"
+    >
+        @if (isSending()) {
+            Надсилання звіту...
+        } @else {
+            Надіслати звіт
+        }
+    </button>
+
+    @if (statusMessage()) {
+        <div style="margin-top: 15px; padding: 10px; background-color: #e6f4ea; color: #137333; border-radius: 4px;">
+            {{ statusMessage() }}
+        </div>
+    }
+</div>

@@ -1,0 +1,49 @@
+<div style="padding: 30px; font-family: sans-serif; max-width: 800px; margin: 0 auto;">
+    <h2>RxJS Advanced: Менеджер завантаження</h2>
+
+    <div style="background: #f5f5f7; padding: 20px; border-radius: 8px; margin-bottom: 25px; border: 1px solid #e5e5e7;">
+        <h3>Зведена статистика (Глобальний потік)</h3>
+        <div style="display: flex; gap: 40px; margin-bottom: 10px;">
+            <div>Активні завантаження: <strong>{{ activeCount() }}</strong></div>
+            <div>Загальний прогрес: <strong>{{ globalProgress() }}%</strong></div>
+        </div>
+        <div style="background: #e5e5e7; height: 10px; border-radius: 5px; overflow: hidden;">
+            <div [style.width.%]="globalProgress()" style="background: #0071e3; height: 100%; transition: width 0.2s;"></div>
+        </div>
+    </div>
+  
+    <div style="display: flex; flex-direction: column; gap: 15px;">
+        @for (file of filesList(); track file.id) {
+            <div style="border: 1px solid #d2d2d7; padding: 15px; border-radius: 8px; display: flex; flex-direction: column; gap: 10px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <span style="font-weight: bold;">📁 {{ file.name }}</span>
+                        <span style="margin-left: 15px; font-size: 14px; color: #86868b;">Статус: {{ file.status }}</span>
+                    </div>
+                    
+                    <div style="display: flex; gap: 8px;">
+                        @if (file.status === 'idle' || file.status === 'cancelled') {
+                            <button (click)="startDownload(file.id)" style="padding: 6px 12px; cursor: pointer;">Завантажити</button>
+                        }
+                        @if (file.status === 'downloading') {
+                            <button (click)="pauseDownload(file.id)" style="padding: 6px 12px; cursor: pointer; background: #ff9500; color: white; border: none; border-radius: 3px;">Пауза</button>
+                        }
+                        @if (file.status === 'paused') {
+                            <button (click)="resumeDownload(file.id)" style="padding: 6px 12px; cursor: pointer; background: #34c759; color: white; border: none; border-radius: 3px;">Відновити</button>
+                        }
+                        @if (file.status === 'downloading' || file.status === 'paused') {
+                            <button (click)="cancelDownload(file.id)" style="padding: 6px 12px; cursor: pointer; background: #ff3b30; color: white; border: none; border-radius: 3px;">Скасувати</button>
+                        }
+                    </div>
+                </div>
+    
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <div style="background: #e5e5e7; height: 6px; flex: 1; border-radius: 3px; overflow: hidden;">
+                        <div [style.width.%]="file.progress" style="background: #34c759; height: 100%;"></div>
+                    </div>
+                    <div style="width: 40px; text-align: right; font-size: 14px;">{{ file.progress }}%</div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

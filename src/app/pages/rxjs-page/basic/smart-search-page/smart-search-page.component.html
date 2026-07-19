@@ -1,0 +1,23 @@
+<div style="flex: 1; border-right: 1px solid #eee; padding-right: 20px;">
+    <h2>Практика RxJS: Розумний пошук</h2>
+    <input 
+        type="text" 
+        [formControl]="searchControl" 
+        placeholder="Почніть вводити ім'я (мінімум 3 символи)..."
+        style="padding: 8px; width: 300px;"
+    />
+    
+    @if (isLoading()) {
+        <p style="color: blue;">Секундочку, шукаю користувачів...</p>
+    }
+    
+    <ul style="margin-top: 15px;">
+        @for (user of users(); track user) {
+            <li>{{user }}</li>
+        } @empty {
+            @if ((searchControl.value?.length ?? 0) >= 3 && !isLoading()) {
+                <li>Нічого не знайдено</li>
+            }
+        }
+    </ul>
+</div>

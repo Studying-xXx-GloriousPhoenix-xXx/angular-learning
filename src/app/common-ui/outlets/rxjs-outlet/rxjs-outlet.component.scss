@@ -1,0 +1,48 @@
+:host {
+    display: grid;
+    grid-template-columns: 15em 1fr;
+    height: 100%;
+}
+
+.menu {
+    padding: 1em;
+}
+
+.branch-list {
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.task-list {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0.5em;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    padding: 0.5em 0;
+}
+
+.branch-name {
+    width: 10em;
+    height: fit-content;
+}
+
+.task-item {
+    width: 10em;
+    height: fit-content;
+    margin-left: 3em;
+    transition: 100ms;
+
+    &.active {
+        background-color: var(--color-secondary);
+        color: var(--text-color);
+
+        &:hover {
+            border-color: var(--text-color);
+        }
+    }
+}

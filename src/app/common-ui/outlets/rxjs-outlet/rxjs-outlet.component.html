@@ -1,0 +1,29 @@
+<aside class="menu">
+    <ul class="branch-list">
+        @for (branch of this.rxjsTree; track branch.path) {
+            @if (branch.path !== '') {
+                <li class="branch-item">
+                    <button
+                        class="btn inverted branch-name"
+                    >{{ branch.path }}</button>
+                    <ul class="task-list">
+                        @for (task of branch.children; track task.path) {
+                            @if (task.path !== '') {
+                                <li>
+                                    <button
+                                        class="btn inverted task-item"
+                                        [routerLink]="[`/topic/rxjs/${branch.path}/${task.path}`]"
+                                        routerLinkActive="active"
+                                    >{{ task.path }}</button>
+                                </li>
+                            }
+                        }
+                    </ul>
+                </li>
+            }
+        }
+    </ul>
+</aside>
+<section class="content">
+    <router-outlet />
+</section>
