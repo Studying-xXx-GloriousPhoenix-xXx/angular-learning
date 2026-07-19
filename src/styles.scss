@@ -55,8 +55,8 @@ p {
         color: var(--color-background);
     
         &:hover {
-            background: var(--color-background);
-            color: var(--color-text);
+            border-color: var(--color-secondary);
+            color: var(--color-secondary);
         }
     }
 }

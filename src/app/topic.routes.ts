@@ -4,6 +4,7 @@ import { PipePageComponent } from './pages/pipe-page/pipe-page.component';
 import { InOutPageComponent } from './pages/in-out-page/in-out-page.component';
 import { LifecyclePageComponent } from './pages/lifecycle-page/lifecycle-page.component';
 import { ViewChildPageComponent } from './pages/view-child-page/view-child-page.component';
+import { HostPageComponent } from './pages/host-page/host-page.component';
 
 export const TOPIC_ROUTES: Routes = [
     { path: 'directive', component: DirectivePageComponent },
@@ -11,4 +12,5 @@ export const TOPIC_ROUTES: Routes = [
     { path: 'in-out', component: InOutPageComponent },
     { path: 'lifecycle', component: LifecyclePageComponent },
     { path: 'view-child', component: ViewChildPageComponent },
+    { path: 'host', component: HostPageComponent }
 ];
