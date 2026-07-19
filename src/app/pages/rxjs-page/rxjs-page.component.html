@@ -1,0 +1,48 @@
+<div style="display: flex; gap: 40px; padding: 20px; font-family: sans-serif;">
+    <div style="flex: 1; border-right: 1px solid #eee; padding-right: 20px;">
+        <h2>Практика RxJS: Розумний пошук</h2>
+        <input 
+            type="text" 
+            [formControl]="searchControl" 
+            placeholder="Почніть вводити ім'я (мінімум 3 символи)..."
+            style="padding: 8px; width: 300px;"
+        />
+        
+        @if (isLoading()) {
+            <p style="color: blue;">Секундочку, шукаю користувачів...</p>
+        }
+        
+        <ul style="margin-top: 15px;">
+            @for (user of users(); track user) {
+                <li>{{user }}</li>
+            } @empty {
+                @if ((searchControl.value?.length ?? 0) >= 3 && !isLoading()) {
+                    <li>Нічого не знайдено</li>
+                }
+            }
+        </ul>
+    </div>
+  
+    <div style="flex: 1;">
+        <h2>Практика RxJS: Безпечне відправлення</h2>
+        <p style="color: #666; font-size: 14px;">Спробуйте багато разів поспіль під час завантаження.</p>
+        
+        <button 
+            #submitBtn
+            style="padding: 10px 20px; font-size: 16px; cursor: pointer;"
+            [disabled]="isSending()"
+        >
+            @if (isSending()) {
+                Надсилання звіту...
+            } @else {
+                Надіслати звіт
+            }
+        </button>
+    
+        @if (statusMessage()) {
+            <div style="margin-top: 15px; padding: 10px; background-color: #e6f4ea; color: #137333; border-radius: 4px;">
+                {{ statusMessage() }}
+            </div>
+        }
+    </div>
+  </div>
